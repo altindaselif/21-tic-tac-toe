@@ -1,0 +1,607 @@
+:root {
+  /* Colors */
+  --dark-navy: #1a2a33;
+  --semi-dark-navy: #1f3641;
+  --silver: #a8bfc9;
+  --silver-hover: #dbe8ed;
+  --light-blue: #31c3bd;
+  --light-blue-hover: #65e9e4;
+  --light-yellow: #f2b137;
+  --light-yellow-hover: #ffc860;
+
+  /* Typography - Font Family */
+  --font-family: "Outfit", sans-serif;
+
+  /* Text Presets */
+  /* Weight Size/Line-Height Family */
+  --heading-l: 700 4rem/1.1 var(--font-family);
+  --heading-l-letter-spacing: 0.25rem;
+  --heading-m: 700 2.4rem/1.1 var(--font-family);
+  --heading-m-letter-spacing: 0.15rem;
+  --heading-s: 700 2rem/1.1 var(--font-family);
+  --heading-s-letter-spacing: 0.125rem;
+  --heading-xs: 700 1.6rem/1.1 var(--font-family);
+  --heading-xs-letter-spacing: 0.1rem;
+  --body: 500 1.4rem/1.5 var(--font-family);
+  --body-letter-spacing: 0.08rem;
+
+  /* Spacing */
+  --spacing-900: 7.2rem;
+  --spacing-700: 5.6rem;
+  --spacing-600: 4.8rem;
+  --spacing-500: 4rem;
+  --spacing-400: 3.2rem;
+  --spacing-300: 2.4rem;
+  --spacing-250: 2rem;
+  --spacing-200: 1.6rem;
+  --spacing-100: 0.8rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--dark-navy);
+  color: var(--dark-navy);
+  text-transform: uppercase;
+  min-height: 100vh;
+  padding: var(--spacing-300);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 46rem;
+}
+
+/* --- START PAGE --- */
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-500);
+}
+
+.start-logo {
+  width: 7.2rem;
+  height: 3.2rem;
+}
+
+.start-pick-mark-container {
+  width: 100%;
+  background-color: var(--semi-dark-navy);
+  border-radius: 1.5rem;
+  box-shadow: inset 0 -0.8rem 0 rgba(16, 33, 42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 3rem değişkenlerde yok, o yüzden kaldı */
+  padding: var(--spacing-300) var(--spacing-300) 3rem var(--spacing-300);
+}
+
+.pick-mark-title {
+  font: var(--heading-xs);
+  letter-spacing: var(--heading-xs-letter-spacing);
+  color: var(--silver);
+  margin-bottom: var(--spacing-300);
+}
+
+.marks-container {
+  width: 100%;
+  background-color: var(--dark-navy);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-100);
+  margin-bottom: var(--spacing-200);
+}
+
+.x-mark-button,
+.o-mark-button {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 0;
+  border-radius: 1rem;
+  transition: all 0.2s;
+}
+
+.x-mark-button svg path,
+.o-mark-button svg path {
+  fill: var(--silver);
+}
+
+.x-mark-button:hover:not(.selected),
+.o-mark-button:hover:not(.selected) {
+  background-color: rgba(168, 191, 201, 0.05);
+}
+
+.selected {
+  background-color: var(--silver);
+}
+
+.selected svg path {
+  fill: var(--dark-navy);
+}
+
+.mark-img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.pick-mark-text {
+  font: var(--body);
+  letter-spacing: var(--body-letter-spacing);
+  color: var(--silver);
+}
+
+.start-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-250);
+}
+
+.ng-button {
+  width: 100%;
+  font: var(--heading-s);
+  letter-spacing: var(--heading-s-letter-spacing);
+  color: var(--dark-navy);
+  border-radius: 1.5rem;
+  padding: var(--spacing-200) 0 var(--spacing-300) 0;
+}
+
+.cpu-ng-button {
+  background-color: var(--light-yellow);
+  box-shadow: inset 0 -0.8rem 0 rgba(204, 139, 19);
+}
+
+.cpu-ng-button:hover {
+  background-color: var(--light-yellow-hover);
+}
+
+.player-ng-button {
+  background-color: var(--light-blue);
+  box-shadow: inset 0 -0.8rem 0 rgba(17, 140, 135);
+}
+
+.player-ng-button:hover {
+  background-color: var(--light-blue-hover);
+}
+/* --- START PAGE --- */
+
+/* --- GAME PAGE --- */
+.game-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-250);
+}
+
+.game-header-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-250);
+}
+
+.game-logo-container,
+.game-turn-container,
+.game-restart-container {
+  flex: 1;
+}
+
+.game-logo {
+  width: 7.1rem;
+  height: 3.2rem;
+}
+
+.game-turn-container {
+  height: 5.2rem;
+  background-color: var(--semi-dark-navy);
+  border-radius: 1rem;
+  box-shadow: inset 0 -0.4rem 0 rgba(16, 33, 42);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.x-turn-img,
+.o-turn-img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.x-turn-container svg path,
+.o-turn-container svg path {
+  fill: var(--silver);
+}
+
+.game-turn-text {
+  font: var(--heading-xs);
+  letter-spacing: var(--heading-xs-letter-spacing);
+  color: var(--silver);
+}
+
+.game-restart-container {
+  display: flex;
+  justify-content: end;
+}
+
+.game-restart-button {
+  width: 5.2rem;
+  height: 5.2rem;
+  background-color: var(--silver);
+  border-radius: 1rem;
+  box-shadow: inset 0 -0.4rem 0 rgba(107, 137, 151);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.game-restart-button:hover {
+  background-color: var(--silver-hover);
+}
+
+.game-restart-img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.game-main-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-250) var(--spacing-250);
+}
+
+.game-cell {
+  width: 14rem;
+  height: 14rem;
+  background-color: var(--semi-dark-navy);
+  border-radius: 1.5rem;
+  box-shadow: inset 0 -0.8rem 0 rgba(16, 33, 42);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-cell-img {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+/* --- HOVER OUTLINE LOGIC --- */
+/* IF IT'S X'S TURN (when .x-turn class is present) */
+.game-main-container.x-turn .game-cell:not(:disabled):hover {
+  background-image: url("./images/icon-x-outline.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6.4rem;
+}
+
+/* IF IT'S O'S TURN (when .o-turn class is present) */
+.game-main-container.o-turn .game-cell:not(:disabled):hover {
+  background-image: url("./images/icon-o-outline.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6.4rem;
+}
+
+.game-score-container {
+  display: flex;
+  gap: var(--spacing-250);
+}
+
+.score-container {
+  flex: 1;
+  height: 7.2rem;
+  border-radius: 1.5rem;
+  color: var(--dark-navy);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-x-container {
+  background-color: var(--light-blue);
+}
+
+.score-ties-container {
+  background-color: var(--silver);
+}
+
+.score-o-container {
+  background-color: var(--light-yellow);
+}
+
+.score-title {
+  font: var(--body);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+.score-number {
+  font: var(--heading-m);
+  letter-spacing: var(--heading-m-letter-spacing);
+}
+/* --- GAME PAGE --- */
+
+/* --- MODAL PAGE --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+}
+
+.modal-content {
+  width: 100%;
+  height: 26.6rem;
+  background-color: var(--semi-dark-navy);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-span {
+  font: var(--heading-xs);
+  letter-spacing: var(--heading-xs-letter-spacing);
+  color: var(--silver);
+  margin-bottom: var(--spacing-200);
+}
+
+.result-title-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-300);
+  margin-bottom: var(--spacing-300);
+}
+
+.result-img {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+.result-title {
+  font: var(--heading-l);
+  letter-spacing: var(--heading-l-letter-spacing);
+  color: var(--light-yellow);
+}
+
+.result-button-container,
+.restart-button-container {
+  display: flex;
+  gap: var(--spacing-200);
+}
+
+.result-button,
+.restart-button {
+  height: 5.2rem;
+  font: var(--heading-xs);
+  letter-spacing: var(--heading-xs-letter-spacing);
+  color: var(--dark-navy);
+  border-radius: 1rem;
+}
+
+.result-quit-button,
+.restart-quit-button {
+  background-color: var(--silver);
+  padding: 0 var(--spacing-200);
+  box-shadow: inset 0 -0.4rem 0 rgba(107, 137, 151);
+}
+
+.result-quit-button:hover,
+.restart-quit-button:hover {
+  background-color: var(--silver-hover);
+}
+
+.result-next-button,
+.restart-next-button {
+  background-color: var(--light-yellow);
+  padding: 0 var(--spacing-200);
+  box-shadow: inset 0 -0.4rem 0 rgba(204, 139, 19);
+}
+
+.result-next-button:hover,
+.restart-next-button:hover {
+  background-color: var(--light-yellow-hover);
+}
+
+.restart-title {
+  font: var(--heading-l);
+  letter-spacing: var(--heading-l-letter-spacing);
+  color: var(--silver);
+  margin-bottom: var(--spacing-400);
+}
+
+.winner-text-x {
+  color: var(--light-blue);
+}
+.winner-text-o {
+  color: var(--light-yellow);
+}
+.winner-text-tie {
+  color: var(--silver);
+}
+/* --- MODAL PAGE --- */
+
+/* --- EXTRA CLASSES --- */
+.hidden {
+  display: none;
+}
+
+.locked {
+  pointer-events: none;
+}
+/* --- EXTRA CLASSES --- */
+
+/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
+/* Tablet = 768px = 48em */
+/* Mobile = 384px = 24em */
+
+/******************************************/
+/* BELOW 768px (Tablet) */
+/******************************************/
+@media (max-width: 48em) {
+  /* Desktop layout applies to tablet screens. */
+}
+
+/******************************************/
+/* BELOW 384px (Mobile) */
+/******************************************/
+@media (max-width: 24em) {
+  .main-container {
+    max-width: 32.7rem;
+  }
+
+  /* --- START PAGE --- */
+  .start-container {
+    gap: var(--spacing-400);
+  }
+
+  .start-button-container {
+    gap: var(--spacing-200);
+  }
+
+  .ng-button {
+    font: var(--heading-xs);
+    letter-spacing: var(--heading-xs-letter-spacing);
+  }
+  /* --- START PAGE --- */
+
+  /* --- GAME PAGE --- */
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .game-header-container {
+    margin-bottom: 6.4rem;
+  }
+
+  .game-turn-container {
+    height: 4rem;
+    gap: var(--spacing-100);
+  }
+
+  .game-x-mark-img,
+  .game-o-mark-img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .game-turn-text {
+    font: var(--body);
+    font-weight: bold;
+    letter-spacing: var(--body-letter-spacing);
+  }
+
+  .game-restart-button {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .game-restart-img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .game-main-container {
+    margin-bottom: var(--spacing-250);
+  }
+
+  .game-cell {
+    width: 9.6rem;
+    height: 9.6rem;
+  }
+
+  .game-cell-img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  /* --- HOVER OUTLINE LOGIC --- */
+  .game-main-container.x-turn .game-cell:not(:disabled):hover {
+    background-size: 4rem;
+  }
+
+  .game-main-container.o-turn .game-cell:not(:disabled):hover {
+    background-size: 4rem;
+  }
+
+  .score-container {
+    height: 6.4rem;
+  }
+  .score-number {
+    font: var(--heading-s);
+    letter-spacing: var(--heading-s-letter-spacing);
+  }
+  /* --- GAME PAGE --- */
+
+  /* --- MODAL PAGE --- */
+  .modal-content {
+    height: 22.8rem;
+  }
+
+  .result-span {
+    font: var(--body);
+    font-weight: bold;
+    letter-spacing: var(--body-letter-spacing);
+  }
+
+  .result-title-container {
+    gap: var(--spacing-100);
+  }
+
+  .result-title-img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .result-title {
+    font: var(--heading-m);
+    letter-spacing: var(--heading-m-letter-spacing);
+  }
+
+  .restart-title {
+    font: var(--heading-m);
+    letter-spacing: var(--heading-m-letter-spacing);
+    margin-bottom: var(--spacing-300);
+  }
+  /* --- MODAL PAGE --- */
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="start-page">
+        <img class="start-logo" src="images/logo.svg" alt="Game Logo" />
+        <div class="start-pick-mark-container">
+          <p class="pick-mark-title">PICK PLAYER 1'S MARK</p>
+          <div class="marks-container">
+            <button class="x-mark-button selected">
+              <svg
+                class="mark-img x-mark-img"
+                viewBox="0 0 64 64"
+                width="64"
+                height="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+                  fill="#31C3BD"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <button class="o-mark-button">
+              <svg
+                class="mark-img o-mark-img"
+                viewBox="0 0 64 64"
+                width="64"
+                height="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+                  fill="#F2B137"
+                />
+              </svg>
+            </button>
+          </div>
+          <p class="pick-mark-text">REMEMBER: X GOES FIRST</p>
+        </div>
+        <div class="start-button-container">
+          <button class="ng-button cpu-ng-button">NEW GAME (VS CPU)</button>
+          <button class="ng-button player-ng-button">NEW GAME (VS PLAYER)</button>
+        </div>
+      </section>
+      <section class="game-page hidden">
+        <div class="game-header-container">
+          <div class="game-logo-container">
+            <img class="game-logo" src="images/logo.svg" alt="Game Logo" />
+          </div>
+          <div class="game-turn-container">
+            <div class="x-turn-container">
+              <svg class="x-turn-img" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+                  fill="#31C3BD"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="o-turn-container hidden">
+              <svg class="o-turn-img" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+                  fill="#F2B137"
+                />
+              </svg>
+            </div>
+            <p class="game-turn-text">Turn</p>
+          </div>
+          <div class="game-restart-container">
+            <button class="game-restart-button">
+              <img class="game-restart-img" src="images/icon-restart.svg" alt="Restart Icon" />
+            </button>
+          </div>
+        </div>
+        <div class="game-main-container">
+          <button class="game-cell" data-index="0"></button>
+          <button class="game-cell" data-index="1"></button>
+          <button class="game-cell" data-index="2"></button>
+          <button class="game-cell" data-index="3"></button>
+          <button class="game-cell" data-index="4"></button>
+          <button class="game-cell" data-index="5"></button>
+          <button class="game-cell" data-index="6"></button>
+          <button class="game-cell" data-index="7"></button>
+          <button class="game-cell" data-index="8"></button>
+        </div>
+        <div class="game-score-container">
+          <div class="score-container score-x-container">
+            <p class="score-title score-x-title">X(P2)</p>
+            <p class="score-number score-x-number">0</p>
+          </div>
+          <div class="score-container score-ties-container">
+            <p class="score-title score-ties-title">TIES</p>
+            <p class="score-number score-ties-number">0</p>
+          </div>
+          <div class="score-container score-o-container">
+            <p class="score-title score-o-title">O(P1)</p>
+            <p class="score-number score-o-number">0</p>
+          </div>
+        </div>
+      </section>
+      <section class="modal-overlay hidden">
+        <div class="modal-content result-modal-container">
+          <span class="result-span">OH NO, YOU LOST...</span>
+          <div class="result-title-container">
+            <img class="result-img result-img-x" src="images/icon-x.svg" alt="X Icon" />
+            <img class="result-img result-img-o hidden" src="images/icon-o.svg" alt="O Icon" />
+            <p class="result-title">TAKES THE ROUND</p>
+          </div>
+          <div class="result-button-container">
+            <button class="result-button result-quit-button">QUIT</button>
+            <button class="result-button result-next-button">NEXT ROUND</button>
+          </div>
+        </div>
+        <div class="modal-content restart-modal-container hidden">
+          <p class="restart-title">RESTART GAME?</p>
+          <div class="restart-button-container">
+            <button class="restart-button restart-quit-button">NO, CANCEL</button>
+            <button class="restart-button restart-next-button">YES, RESTART</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
