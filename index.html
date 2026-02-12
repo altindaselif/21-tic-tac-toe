@@ -19,9 +19,9 @@
       <section class="start-page">
         <img class="start-logo" src="images/logo.svg" alt="Game Logo" />
         <div class="start-pick-mark-container">
-          <p class="pick-mark-title">PICK PLAYER 1'S MARK</p>
+          <h1 class="pick-mark-title">PICK PLAYER 1'S MARK</h1>
           <div class="marks-container">
-            <button class="x-mark-button selected">
+            <button class="x-mark-button selected" type="button" aria-label="Select X Mark">
               <svg
                 class="mark-img x-mark-img"
                 viewBox="0 0 64 64"
@@ -36,7 +36,7 @@
                 />
               </svg>
             </button>
-            <button class="o-mark-button">
+            <button class="o-mark-button" type="button" aria-label="Select O Mark">
               <svg
                 class="mark-img o-mark-img"
                 viewBox="0 0 64 64"
@@ -54,14 +54,14 @@
           <p class="pick-mark-text">REMEMBER: X GOES FIRST</p>
         </div>
         <div class="start-button-container">
-          <button class="ng-button cpu-ng-button">NEW GAME (VS CPU)</button>
-          <button class="ng-button player-ng-button">NEW GAME (VS PLAYER)</button>
+          <button class="ng-button cpu-ng-button" type="button">NEW GAME (VS CPU)</button>
+          <button class="ng-button player-ng-button" type="button">NEW GAME (VS PLAYER)</button>
         </div>
       </section>
       <section class="game-page hidden">
-        <div class="game-header-container">
+        <header class="game-header-container">
           <div class="game-logo-container">
-            <img class="game-logo" src="images/logo.svg" alt="Game Logo" />
+            <img class="game-logo" src="images/logo.svg" alt="Tic Tac Toe Logo" />
           </div>
           <div class="game-turn-container">
             <div class="x-turn-container">
@@ -84,22 +84,22 @@
             <p class="game-turn-text">Turn</p>
           </div>
           <div class="game-restart-container">
-            <button class="game-restart-button">
+            <button class="game-restart-button" type="button" aria-label="Restart Game">
               <img class="game-restart-img" src="images/icon-restart.svg" alt="Restart Icon" />
             </button>
           </div>
-        </div>
+        </header>
         <div class="game-main-container">
-          <button class="game-cell" data-index="0"></button>
-          <button class="game-cell" data-index="1"></button>
-          <button class="game-cell" data-index="2"></button>
-          <button class="game-cell" data-index="3"></button>
-          <button class="game-cell" data-index="4"></button>
-          <button class="game-cell" data-index="5"></button>
-          <button class="game-cell" data-index="6"></button>
-          <button class="game-cell" data-index="7"></button>
-          <button class="game-cell" data-index="8"></button>
-        </div>
+          <button class="game-cell" data-index="0" type="button" aria-label="Game Cell 0"></button>
+          <button class="game-cell" data-index="1" type="button" aria-label="Game Cell 1"></button>
+          <button class="game-cell" data-index="2" type="button" aria-label="Game Cell 2"></button>
+          <button class="game-cell" data-index="3" type="button" aria-label="Game Cell 3"></button>
+          <button class="game-cell" data-index="4" type="button" aria-label="Game Cell 4"></button>
+          <button class="game-cell" data-index="5" type="button" aria-label="Game Cell 5"></button>
+          <button class="game-cell" data-index="6" type="button" aria-label="Game Cell 6"></button>
+          <button class="game-cell" data-index="7" type="button" aria-label="Game Cell 7"></button>
+          <button class="game-cell" data-index="8" type="button" aria-label="Game Cell 8"></button>
+        </div
         <div class="game-score-container">
           <div class="score-container score-x-container">
             <p class="score-title score-x-title">X(P2)</p>
@@ -124,15 +124,15 @@
             <p class="result-title">TAKES THE ROUND</p>
           </div>
           <div class="result-button-container">
-            <button class="result-button result-quit-button">QUIT</button>
-            <button class="result-button result-next-button">NEXT ROUND</button>
+            <button class="result-button result-quit-button" type="button">QUIT</button>
+            <button class="result-button result-next-button" type="button">NEXT ROUND</button>
           </div>
         </div>
         <div class="modal-content restart-modal-container hidden">
           <p class="restart-title">RESTART GAME?</p>
           <div class="restart-button-container">
-            <button class="restart-button restart-quit-button">NO, CANCEL</button>
-            <button class="restart-button restart-next-button">YES, RESTART</button>
+            <button class="restart-button restart-quit-button" type="button">NO, CANCEL</button>
+            <button class="restart-button restart-next-button" type="button">YES, RESTART</button>
           </div>
         </div>
       </section>

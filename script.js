@@ -26,8 +26,8 @@ const restartModal = document.querySelector(".restart-modal-container");
 const restartQuitButton = document.querySelector(".restart-quit-button");
 const restartNextButton = document.querySelector(".restart-next-button");
 
-let board = new Array(9).fill(null);
 let currentPlayer = null;
+let cpuTimeoutId = null;
 let gameActive = true;
 let vsCPU = false;
 let player1Mark = "x";
@@ -35,6 +35,8 @@ let player1Mark = "x";
 let ScoreX = 0;
 let ScoreO = 0;
 let ScoreTie = 0;
+
+const board = new Array(9).fill(null);
 
 const winningConditions = [
   [0, 1, 2],
@@ -88,7 +90,7 @@ const handleCPUTurn = () => {
 
   gameMainContainer.classList.add("locked");
 
-  setTimeout(() => {
+  cpuTimeoutId = setTimeout(() => {
     cpuMove();
     gameMainContainer.classList.remove("locked");
   }, 500);
@@ -184,6 +186,7 @@ const checkWin = () => {
     if (board[a] === null) continue;
     if (board[a] === board[b] && board[b] === board[c]) return board[a];
   }
+  return null;
 };
 
 const showResult = (winner) => {
@@ -221,6 +224,8 @@ const showResult = (winner) => {
 };
 
 const resetGame = () => {
+  clearTimeout(cpuTimeoutId);
+
   board.fill(null);
   currentPlayer = "x";
   gameActive = true;
@@ -275,7 +280,7 @@ playerNGButton.addEventListener("click", () => startGame(false));
 gameCells.forEach((button) => {
   button.addEventListener("click", (e) => {
     const clickedCell = e.currentTarget;
-    const clickedCellIndex = e.currentTarget.dataset.index;
+    const clickedCellIndex = Number(e.currentTarget.dataset.index);
 
     if (board[clickedCellIndex] || !gameActive) return;
 
