@@ -99,8 +99,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 3rem değişkenlerde yok, o yüzden kaldı */
-  padding: var(--spacing-300) var(--spacing-300) 3rem var(--spacing-300);
+  padding: var(--spacing-300);
 }
 
 .pick-mark-title {
